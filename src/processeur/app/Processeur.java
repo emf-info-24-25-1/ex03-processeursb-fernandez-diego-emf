@@ -20,7 +20,15 @@ public class Processeur {
      * @param args les arguments du programme passés sur la ligne de commande
      */
     public static void main(String[] args ) {
-        // VOTRE CODE ICI...
+       Controller controller = new Controller();
+       ServiceCPU serviceCPU = new ServiceCPU();
+       View view = new View();
+
+       controller.setRefServiceCPU(serviceCPU);
+       controller.setRefView(view);
+       serviceCPU.setRefCtrl(controller);
+       view.setRefCtrl(controller);
+       controller.start();
     }
 
 }
